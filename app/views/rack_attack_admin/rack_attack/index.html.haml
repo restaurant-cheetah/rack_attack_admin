@@ -67,7 +67,7 @@
         time_range = parsed[:time_range]
       end
       if time_range
-        human_duration = time_range.duration&.human_str
+        human_duration = time_range.duration&.in_minutes()
       end
     %tr
       %td
@@ -96,7 +96,7 @@
           - if interval < 0
             expired<br/>
           - elsif interval
-            in #{ActiveSupport::Duration.build(interval)&.human_str}<br/>
+            in #{ActiveSupport::Duration.build(interval).in_minutes()}<br/>
 
           - if time_range
             %small
